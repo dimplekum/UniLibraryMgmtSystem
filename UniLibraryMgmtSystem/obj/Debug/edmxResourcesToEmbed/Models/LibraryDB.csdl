@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryManagementSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AUTHOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIRST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CONTACT_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EDUCATION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SPECIALIZATION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REMARKS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BOOKs" Relationship="LibraryManagementSystemModel.FK__BOOK__AUTHOR_MAS__534D60F1" FromRole="AUTHOR" ToRole="BOOK" />
+  </EntityType>
+  <EntityType Name="BOOK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BOOK_CATEGORY_ID" Type="Int32" />
+    <Property Name="PUBLISHER_ID" Type="Int32" />
+    <Property Name="BOOK_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BOOK_SUBJECT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BOOK_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BOOK_CATEGORY" Relationship="Self.FK__BOOK__BOOK_CATEG__45F365D3" FromRole="BOOK" ToRole="BOOK_CATEGORY" />
+    <NavigationProperty Name="BOOK_ISSUE" Relationship="Self.FK__BOOK_ISSU__BOOK___49C3F6B7" FromRole="BOOK" ToRole="BOOK_ISSUE" />
+    <NavigationProperty Name="BOOK_RECEIEVED" Relationship="Self.FK__BOOK_RECE__BOOK___4F7CD00D" FromRole="BOOK" ToRole="BOOK_RECEIEVED" />
+    <NavigationProperty Name="PUBLISHER" Relationship="LibraryManagementSystemModel.FK__BOOK__PUBLISHER___52593CB8" FromRole="BOOK" ToRole="PUBLISHER" />
+    <Property Name="AUTHOR_MASTER_ID" Type="Int32" />
+    <NavigationProperty Name="AUTHOR" Relationship="LibraryManagementSystemModel.FK__BOOK__AUTHOR_MAS__534D60F1" FromRole="BOOK" ToRole="AUTHOR" />
+  </EntityType>
+  <EntityType Name="BOOK_CATEGORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BOOKs" Relationship="Self.FK__BOOK__BOOK_CATEG__45F365D3" FromRole="BOOK_CATEGORY" ToRole="BOOK" />
+  </EntityType>
+  <EntityType Name="BOOK_ISSUE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISSUE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="BOOK_ID" Type="Int32" />
+    <Property Name="MEMBER_ID" Type="Int32" />
+    <Property Name="NO_OF_DAYS" Type="Int32" />
+    <Property Name="FINE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="REMARKS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BOOK" Relationship="Self.FK__BOOK_ISSU__BOOK___49C3F6B7" FromRole="BOOK_ISSUE" ToRole="BOOK" />
+    <NavigationProperty Name="MEMBER" Relationship="Self.FK__BOOK_ISSU__MEMBE__4AB81AF0" FromRole="BOOK_ISSUE" ToRole="MEMBER" />
+  </EntityType>
+  <EntityType Name="BOOK_RECEIEVED">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DATE" Type="DateTime" Precision="0" />
+    <Property Name="BOOK_ID" Type="Int32" />
+    <Property Name="MEMBER_ID" Type="Int32" />
+    <Property Name="FINE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="REMARKS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BOOK" Relationship="Self.FK__BOOK_RECE__BOOK___4F7CD00D" FromRole="BOOK_RECEIEVED" ToRole="BOOK" />
+    <NavigationProperty Name="MEMBER" Relationship="Self.FK__BOOK_RECE__MEMBE__5070F446" FromRole="BOOK_RECEIEVED" ToRole="MEMBER" />
+  </EntityType>
+  <EntityType Name="MEMBER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberTypeId" Type="Int32" />
+    <Property Name="MEMBERSHIP_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MEMBERSHIP_DATE" Type="DateTime" Precision="0" />
+    <Property Name="FIRST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CONTACT_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EDUCATION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REMARKS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BOOK_ISSUE" Relationship="Self.FK__BOOK_ISSU__MEMBE__4AB81AF0" FromRole="MEMBER" ToRole="BOOK_ISSUE" />
+    <NavigationProperty Name="BOOK_RECEIEVED" Relationship="Self.FK__BOOK_RECE__MEMBE__5070F446" FromRole="MEMBER" ToRole="BOOK_RECEIEVED" />
+    <NavigationProperty Name="MemberType" Relationship="Self.FK__MEMBER__MemberTy__3E52440B" FromRole="MEMBER" ToRole="MemberType" />
+  </EntityType>
+  <EntityType Name="MemberType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MEMBERs" Relationship="Self.FK__MEMBER__MemberTy__3E52440B" FromRole="MemberType" ToRole="MEMBER" />
+  </EntityType>
+  <EntityType Name="PublicationType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PUBLISHERs" Relationship="Self.FK__PUBLISHER__Publi__3B75D760" FromRole="PublicationType" ToRole="PUBLISHER" />
+  </EntityType>
+  <EntityType Name="PUBLISHER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PublicationTypeId" Type="Int32" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CONTACT_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PublicationType" Relationship="Self.FK__PUBLISHER__Publi__3B75D760" FromRole="PUBLISHER" ToRole="PublicationType" />
+    <NavigationProperty Name="BOOKs" Relationship="LibraryManagementSystemModel.FK__BOOK__PUBLISHER___52593CB8" FromRole="PUBLISHER" ToRole="BOOK" />
+  </EntityType>
+  <Association Name="FK__BOOK__BOOK_CATEG__45F365D3">
+    <End Role="BOOK_CATEGORY" Type="Self.BOOK_CATEGORY" Multiplicity="0..1" />
+    <End Role="BOOK" Type="Self.BOOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOOK_CATEGORY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BOOK">
+        <PropertyRef Name="BOOK_CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BOOK_ISSU__BOOK___49C3F6B7">
+    <End Role="BOOK" Type="Self.BOOK" Multiplicity="0..1" />
+    <End Role="BOOK_ISSUE" Type="Self.BOOK_ISSUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOOK">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BOOK_ISSUE">
+        <PropertyRef Name="BOOK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BOOK_RECE__BOOK___4F7CD00D">
+    <End Role="BOOK" Type="Self.BOOK" Multiplicity="0..1" />
+    <End Role="BOOK_RECEIEVED" Type="Self.BOOK_RECEIEVED" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOOK">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BOOK_RECEIEVED">
+        <PropertyRef Name="BOOK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BOOK_ISSU__MEMBE__4AB81AF0">
+    <End Role="MEMBER" Type="Self.MEMBER" Multiplicity="0..1" />
+    <End Role="BOOK_ISSUE" Type="Self.BOOK_ISSUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEMBER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BOOK_ISSUE">
+        <PropertyRef Name="MEMBER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BOOK_RECE__MEMBE__5070F446">
+    <End Role="MEMBER" Type="Self.MEMBER" Multiplicity="0..1" />
+    <End Role="BOOK_RECEIEVED" Type="Self.BOOK_RECEIEVED" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEMBER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BOOK_RECEIEVED">
+        <PropertyRef Name="MEMBER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MEMBER__MemberTy__3E52440B">
+    <End Role="MemberType" Type="Self.MemberType" Multiplicity="0..1" />
+    <End Role="MEMBER" Type="Self.MEMBER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MEMBER">
+        <PropertyRef Name="MemberTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PUBLISHER__Publi__3B75D760">
+    <End Role="PublicationType" Type="Self.PublicationType" Multiplicity="0..1" />
+    <End Role="PUBLISHER" Type="Self.PUBLISHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PublicationType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PUBLISHER">
+        <PropertyRef Name="PublicationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibraryManagementSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AUTHORs" EntityType="Self.AUTHOR" />
+    <EntitySet Name="BOOKs" EntityType="Self.BOOK" />
+    <EntitySet Name="BOOK_CATEGORY" EntityType="Self.BOOK_CATEGORY" />
+    <EntitySet Name="BOOK_ISSUE" EntityType="Self.BOOK_ISSUE" />
+    <EntitySet Name="BOOK_RECEIEVED" EntityType="Self.BOOK_RECEIEVED" />
+    <EntitySet Name="MEMBERs" EntityType="Self.MEMBER" />
+    <EntitySet Name="MemberTypes" EntityType="Self.MemberType" />
+    <EntitySet Name="PublicationTypes" EntityType="Self.PublicationType" />
+    <EntitySet Name="PUBLISHERs" EntityType="Self.PUBLISHER" />
+    <AssociationSet Name="FK__BOOK__BOOK_CATEG__45F365D3" Association="Self.FK__BOOK__BOOK_CATEG__45F365D3">
+      <End Role="BOOK_CATEGORY" EntitySet="BOOK_CATEGORY" />
+      <End Role="BOOK" EntitySet="BOOKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOK_ISSU__BOOK___49C3F6B7" Association="Self.FK__BOOK_ISSU__BOOK___49C3F6B7">
+      <End Role="BOOK" EntitySet="BOOKs" />
+      <End Role="BOOK_ISSUE" EntitySet="BOOK_ISSUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOK_RECE__BOOK___4F7CD00D" Association="Self.FK__BOOK_RECE__BOOK___4F7CD00D">
+      <End Role="BOOK" EntitySet="BOOKs" />
+      <End Role="BOOK_RECEIEVED" EntitySet="BOOK_RECEIEVED" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOK_ISSU__MEMBE__4AB81AF0" Association="Self.FK__BOOK_ISSU__MEMBE__4AB81AF0">
+      <End Role="MEMBER" EntitySet="MEMBERs" />
+      <End Role="BOOK_ISSUE" EntitySet="BOOK_ISSUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOK_RECE__MEMBE__5070F446" Association="Self.FK__BOOK_RECE__MEMBE__5070F446">
+      <End Role="MEMBER" EntitySet="MEMBERs" />
+      <End Role="BOOK_RECEIEVED" EntitySet="BOOK_RECEIEVED" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MEMBER__MemberTy__3E52440B" Association="Self.FK__MEMBER__MemberTy__3E52440B">
+      <End Role="MemberType" EntitySet="MemberTypes" />
+      <End Role="MEMBER" EntitySet="MEMBERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PUBLISHER__Publi__3B75D760" Association="Self.FK__PUBLISHER__Publi__3B75D760">
+      <End Role="PublicationType" EntitySet="PublicationTypes" />
+      <End Role="PUBLISHER" EntitySet="PUBLISHERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOK__PUBLISHER___52593CB8" Association="LibraryManagementSystemModel.FK__BOOK__PUBLISHER___52593CB8">
+      <End Role="PUBLISHER" EntitySet="PUBLISHERs" />
+      <End Role="BOOK" EntitySet="BOOKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOK__AUTHOR_MAS__534D60F1" Association="LibraryManagementSystemModel.FK__BOOK__AUTHOR_MAS__534D60F1">
+      <End Role="AUTHOR" EntitySet="AUTHORs" />
+      <End Role="BOOK" EntitySet="BOOKs" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK__BOOK__PUBLISHER___52593CB8">
+    <End Type="LibraryManagementSystemModel.PUBLISHER" Role="PUBLISHER" Multiplicity="0..1" />
+    <End Type="LibraryManagementSystemModel.BOOK" Role="BOOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUBLISHER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BOOK">
+        <PropertyRef Name="PUBLISHER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BOOK__AUTHOR_MAS__534D60F1">
+    <End Type="LibraryManagementSystemModel.AUTHOR" Role="AUTHOR" Multiplicity="0..1" />
+    <End Type="LibraryManagementSystemModel.BOOK" Role="BOOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AUTHOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BOOK">
+        <PropertyRef Name="AUTHOR_MASTER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<UniLibraryMgmtSystem.Models.AUTHOR>
+
+@{
+    ViewBag.Title = "Authors";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FIRST_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LAST_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADDRESS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CONTACT_NO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EDUCATION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SPECIALIZATION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REMARKS)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FIRST_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LAST_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADDRESS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CONTACT_NO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EDUCATION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SPECIALIZATION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REMARKS)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<UniLibraryMgmtSystem.Models.BOOK_ISSUE>
+
+@{
+    ViewBag.Title = "Books Issue";
+}
+
+<h2>Issue Books</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ISSUE_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NO_OF_DAYS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FINE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REMARKS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BOOK.BOOK_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MEMBER.MEMBERSHIP_ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISSUE_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NO_OF_DAYS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FINE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REMARKS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BOOK.BOOK_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MEMBER.MEMBERSHIP_ID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

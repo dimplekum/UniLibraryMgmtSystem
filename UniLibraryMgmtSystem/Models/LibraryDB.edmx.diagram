@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9f711098b14a4a86b5a2e3b7a1a36c13" Name="Diagram1">
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.AUTHOR" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.BOOK" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.BOOK_CATEGORY" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.BOOK_ISSUE" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.BOOK_RECEIEVED" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.MEMBER" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.MemberType" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.PublicationType" Width="1.5" PointX="5.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryManagementSystemModel.PUBLISHER" Width="1.5" PointX="8" PointY="8.875" IsExpanded="true" />
+        <AssociationConnector Association="LibraryManagementSystemModel.FK__BOOK__BOOK_CATEG__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryManagementSystemModel.FK__BOOK_ISSU__BOOK___49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryManagementSystemModel.FK__BOOK_RECE__BOOK___4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryManagementSystemModel.FK__BOOK_ISSU__MEMBE__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryManagementSystemModel.FK__BOOK_RECE__MEMBE__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryManagementSystemModel.FK__MEMBER__MemberTy__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryManagementSystemModel.FK__PUBLISHER__Publi__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryManagementSystemModel.FK__BOOK__PUBLISHER___52593CB8" />
+        <AssociationConnector Association="LibraryManagementSystemModel.FK__BOOK__AUTHOR_MAS__534D60F1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

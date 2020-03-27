@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibraryManagementSystemModelStoreContainer" CdmEntityContainer="LibraryManagementSystemEntities">
+    <EntitySetMapping Name="AUTHORs">
+      <EntityTypeMapping TypeName="LibraryManagementSystemModel.AUTHOR">
+        <MappingFragment StoreEntitySet="AUTHOR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="CONTACT_NO" ColumnName="CONTACT_NO" />
+          <ScalarProperty Name="EDUCATION" ColumnName="EDUCATION" />
+          <ScalarProperty Name="SPECIALIZATION" ColumnName="SPECIALIZATION" />
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BOOKs">
+      <EntityTypeMapping TypeName="LibraryManagementSystemModel.BOOK">
+        <MappingFragment StoreEntitySet="BOOK">
+          <ScalarProperty Name="AUTHOR_MASTER_ID" ColumnName="AUTHOR_MASTER_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BOOK_CATEGORY_ID" ColumnName="BOOK_CATEGORY_ID" />
+          <ScalarProperty Name="PUBLISHER_ID" ColumnName="PUBLISHER_ID" />
+          <ScalarProperty Name="BOOK_NAME" ColumnName="BOOK_NAME" />
+          <ScalarProperty Name="BOOK_SUBJECT" ColumnName="BOOK_SUBJECT" />
+          <ScalarProperty Name="BOOK_DESCRIPTION" ColumnName="BOOK_DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BOOK_CATEGORY">
+      <EntityTypeMapping TypeName="LibraryManagementSystemModel.BOOK_CATEGORY">
+        <MappingFragment StoreEntitySet="BOOK_CATEGORY">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BOOK_ISSUE">
+      <EntityTypeMapping TypeName="LibraryManagementSystemModel.BOOK_ISSUE">
+        <MappingFragment StoreEntitySet="BOOK_ISSUE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ISSUE_DATE" ColumnName="ISSUE_DATE" />
+          <ScalarProperty Name="BOOK_ID" ColumnName="BOOK_ID" />
+          <ScalarProperty Name="MEMBER_ID" ColumnName="MEMBER_ID" />
+          <ScalarProperty Name="NO_OF_DAYS" ColumnName="NO_OF_DAYS" />
+          <ScalarProperty Name="FINE" ColumnName="FINE" />
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BOOK_RECEIEVED">
+      <EntityTypeMapping TypeName="LibraryManagementSystemModel.BOOK_RECEIEVED">
+        <MappingFragment StoreEntitySet="BOOK_RECEIEVED">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="BOOK_ID" ColumnName="BOOK_ID" />
+          <ScalarProperty Name="MEMBER_ID" ColumnName="MEMBER_ID" />
+          <ScalarProperty Name="FINE" ColumnName="FINE" />
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEMBERs">
+      <EntityTypeMapping TypeName="LibraryManagementSystemModel.MEMBER">
+        <MappingFragment StoreEntitySet="MEMBER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MemberTypeId" ColumnName="MemberTypeId" />
+          <ScalarProperty Name="MEMBERSHIP_ID" ColumnName="MEMBERSHIP_ID" />
+          <ScalarProperty Name="MEMBERSHIP_DATE" ColumnName="MEMBERSHIP_DATE" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="CONTACT_NO" ColumnName="CONTACT_NO" />
+          <ScalarProperty Name="EDUCATION" ColumnName="EDUCATION" />
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberTypes">
+      <EntityTypeMapping TypeName="LibraryManagementSystemModel.MemberType">
+        <MappingFragment StoreEntitySet="MemberType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PublicationTypes">
+      <EntityTypeMapping TypeName="LibraryManagementSystemModel.PublicationType">
+        <MappingFragment StoreEntitySet="PublicationType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUBLISHERs">
+      <EntityTypeMapping TypeName="LibraryManagementSystemModel.PUBLISHER">
+        <MappingFragment StoreEntitySet="PUBLISHER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PublicationTypeId" ColumnName="PublicationTypeId" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="CONTACT_NO" ColumnName="CONTACT_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
